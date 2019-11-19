@@ -44,12 +44,9 @@
 
         const userCookiesEnabled = true;
 
+        setCookie("username", "Undefined user", 365);
         var user = getCookie("username");
-        if (user != "") {
-          document.getElementById("cookie_content").innerHTML = "Cookie for USERNAME IS SET";
-        } else {
-          setCookie("username", "Undefined user", 365);
-        }
+        document.getElementById("cookie_content").innerHTML = "Cookie for USERNAME IS SET";
     </script>
     <script type="text/javascript">
         if (typeof userCookiesEnabled == 'undefined') {
