@@ -8,7 +8,18 @@
         function OptanonWrapper() { }
     </script>
     <!-- OneTrust Cookies Consent Notice end -->
-    <script type="text/javascript">
+  </head>
+  <body>
+    <p>Hi from Cookie Consent web site</p>
+    <p id="cookie_content">Cookie for USERNAME is not set</p>
+    <!-- OneTrust Cookies Settings button start -->
+    <a class="optanon-show-settings">Cookie Settings</a>
+    <!-- OneTrust Cookies Settings button end -->
+    <!-- OneTrust Cookies List start -->
+    <div id="optanon-cookie-policy"></div>
+    <!-- OneTrust Cookies List end -->
+  </body>
+  <script type="text/plain" class="optanon-category-3">
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -31,25 +42,18 @@
             return "";
         }
 
-        function checkCookie() {
-          var user = getCookie("username");
-          if (user != "") {
-            document.getElementById("cookie_content").innerHTML = "Cookiet is set for " + user;
-          } else {
-            setCookie("username", "Undefined user", 365);
-            
-          }
+        const userCookiesEnabled = true;
+
+        var user = getCookie("username");
+        if (user != "") {
+          document.getElementById("cookie_content").innerHTML = "Cookie for USERNAME IS SET";
+        } else {
+          setCookie("username", "Undefined user", 365);
         }
     </script>
-  </head>
-  <body onload="checkCookie()">
-    <p>Hi from Cookie Consent web site</p>
-    <p id="cookie_content">Cookies are not set yet</p>
-    <!-- OneTrust Cookies Settings button start -->
-    <a class="optanon-show-settings">Cookie Settings</a>
-    <!-- OneTrust Cookies Settings button end -->
-    <!-- OneTrust Cookies List start -->
-    <div id="optanon-cookie-policy"></div>
-    <!-- OneTrust Cookies List end -->
-  </body>
+    <script type="text/javascript">
+        if (typeof userCookiesEnabled == 'undefined') {
+            document.cookie = 'username=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+        }
+    </script>
 </html>
